@@ -38,7 +38,7 @@ app.get('/api', function(req, res) {
 })
 
 app.post('/api', function(req, res) {
-  db.create_products(function(err, createProduct) {
+  db.create_product([req.body.name, req.body.description, req.body.price, req.body.imageurl], function(err, createProduct) {
     if (err) return res.status(500).json(err)
     return res.status(200).json(createProduct)
   })
